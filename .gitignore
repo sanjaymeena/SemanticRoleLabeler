@@ -1,0 +1,15 @@
+bin
+*.log
+.DS_Store
+logs/*
+target/
+
+data/corpus_validation/*
+
+!data/corpus_validation/input/
+!data/corpus_validation/unused_data/
+!data/corpus_validation/training_data/
+!data/corpus_validation/bad_cases_analysis/
+
+data/corpus_validation/bad_cases_analysis/*
+!data/corpus_validation/bad_cases_analysis/input/

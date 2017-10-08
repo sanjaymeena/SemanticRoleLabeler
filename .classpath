@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/semantic_role_labeling/others/liblinear-1.51-with-deps.jar"/>
+	<classpathentry kind="lib" path="lib/semantic_role_labeling/others/whatswrong-0.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/http-2.2.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/guava/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/javax.json-1.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/guava/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="lib/others/json-smart-2.0-RC3.jar"/>
+	<classpathentry kind="lib" path="lib/semantic_role_labeling/others/opennlp-tools-1.5.2-incubating.jar"/>
+	<classpathentry kind="lib" path="lib/semantic_role_labeling/others/trove-2.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/others/commons-math-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-csv-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/org.json-20160810.jar"/>
+	<classpathentry kind="lib" path="lib/nlu-2.7.6-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/stanford/stanford-ner-3.7.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

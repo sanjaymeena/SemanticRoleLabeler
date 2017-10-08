@@ -1,0 +1,309 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+This project adheres to [Semantic Versioning](http://semver.org/).
+
+* SRL 2.2.2
+* Add FER to JSON output
+
+* SRL 2.2.1
+* Update NLP to 2.5.0
+* Fix 6 patterns for *lexa demo
+
+* SRL 2.1.4
+* Add semantic frame API for visualization tool
+* Update NLP to 2.4.3
+
+* SRL 2.1.3
+* Revise sentences where "需要" is tagged as MOD
+* Adjust POS mapping: vn->n and an->n
+* Update NLP to 2.4.2
+
+# SRL 2.1.2
+* Add message for pruner
+* Get personNE, personStandard, speechAct and sentence type from NLP web service
+
+# SRL 2.1.1
+* Quick fix: Output SRL of HED only if pos of HED is verb or adjective
+
+# SRL 2.1.0
+* Sentence Pruner is available in Json output 
+* Fix root verb identification error
+
+# SRL 2.0.8
+* Fix dependency head issue for one head, two heads.
+* Remove C-MOD in SRL table output
+
+# SRL 2.0.7.1
+* Add SRL Sentence Pruner rules
+
+# SRL 2.0.7
+
+* Add SRL Sentence Pruner
+* Remove SRL tags: A5, DRG, CRD, PSR, REC, DIS, AFT
+
+# SRL 2.0.6.2
+
+* Add SRL status information in Json output
+
+
+# SRL 2.0.6.1
+
+* Update NLP to 2.4.1
+* Fix Conll format parsing
+
+# SRL 2.0.6
+
+* Fix 7 Freeme bad cases
+* Use pos tagger from NLP team as default
+* Remove Model 1
+
+# SRL 2.0.5
+
+* Enhance accounting support
+    * Time and Expense extraction
+    * Add 57 training sentences
+    * Removed hit format and renamed conll to Emotibot
+
+# SRL 2.0.4
+
+* Enhance ctrip support 
+    * Time and Location extraction
+    * Add 135 training sentences
+* Fix issue #1 and #2
+* Modify REST API new format
+
+# SRL 2.0.3
+
+* update NLP to 2.3.6
+* Added NLU Viz
+* retrain all models based on 9 memory issues
+
+# SRL 2.0.2
+
+* retrain dependency parser and SRL model based on 8 patterns
+
+
+# SRL 2.0.1
+
+* update to nlp 2.3.4
+* add method for srlviz to deal with the manual bug
+
+# SRL 2.0.0
+
+* finish AT replacement of all data
+
+## SRL Model 
+* Trained on total 22785 sentences
+
+# SRL 1.3.9
+
+* Made singleton access less computationally expensive. 
+* Added code for fixing and updating srl data based on corrected word segmentation.
+
+# SRL 1.3.8
+
+Code can train dependency and pos parsers also. Many notable changes related to bug fixing quality of data.
+
+# SRL 1.3.4
+
+It is released on taipei server (192.168.3.2) and dev server in shanghai (192.168.1.126)
+* Please have a look at new SRL visualization tool : http://192.168.3.2:12401/srlviz, http://192.168.1.126:12401/srlviz
+
+## SRL Model 
+* Trained on total 13825 sentences
+	* SRL Sentences: 12143
+	* Memory: 1682
+
+## SRL Visualisation
+
+New Document added. They can be accessed at :  /srlviz
+* Data Analysis Document added for current srl Data. It can be accessed at /srlviz/SRL_Data_Analysis.pdf
+* SRL PPT added with detailed architectures for the system
+# Data Log added for tracking data tagging process
+# Changelog added to see all the changes during versions
+
+## Evaluation
+We can perform evalaution for all data (for e.g. memory, intent, SRL ) separately as well. In this version will provide only final scores
+
+
+
+
+
+# SRL 1.3.3 
+
+* It is released on taipei server (192.168.3.2) and dev server in shanghai (192.168.1.126)
+* Please have a look at new SRL visualization tool : http://192.168.3.2:12401/srlviz, http://192.168.1.126:12401/srlviz
+
+## SRL Model 
+* Trained on total 12271 sentences
+	* SRL Sentences: 10589
+	* Memory: 1682
+* SRL Data Validation improved to find more human tagging mistakes which are difficult to observe by visual inspection. For e.g. verb spanning over more than one token.	
+
+## SRL Visualisation
+
+* Users can choose what output they would like to see. For e.g. dependency parsing, SRL, Syntactic Parse tree etc. 
+* Multiple outputs from SRL for understanding and debugging purpose: 
+	* SRL Triple Format
+	* HIT Format for better understading of span of arguments
+	* CONLL2009 Format which is the main format processed by the system for training, output purposes.
+* Documents on SRL available directly on the web page.	
+
+## Evaluation metrics for SRL
+
+* We will use standard CONLL2009 conference perl evaluation script for evaluation metrics for different components like : SRL output, Predicate Identification etc. 
+* Results will be available in next release.
+
+
+Next Version Info: 
+
+# Next Version Info: 
+
+1. Next SRL release will be for 10000 trained sentences  by monday, 12/9/16. 
+2. Integrated code to provide evaluation results. 
+
+* We have the ability to train following "Additional" components from our training data for conversation : 
+	1. POS Tagger (confirmed)
+	2. Dependency Parser (confirmed)
+	3. Sentence Segmentation (Need some more analysis)
+
+	We will provide the details on process for achieving the above tasks.
+
+3. Data Analysis on the SRL data from different sources.
+
+
+# SRL 1.3.2
+It is released on taipei server (192.168.3.2) and dev server in shanghai (192.168.1.126)
+
+1. New model SRL model trained on data : 
+	1. Total sentences : 10817
+	2. SRL sentences : 10207
+	3. Memory sentences : 610 (New SRL Tag "TGT" also added)
+
+2. Data annotated to support main verb detection more correctly. 
+3. 2 systemic bug fixes related to repeated relations and predicate occuring in arg2.
+
+## Bug fixes : 
+
+1) The arg1 also occurs in arg2 . Essentially predicate occurs in its arguments because of wrong dependency issues.
+
+{"喜欢": "我喜欢周杰伦的歌","pred": "喜欢.01","arg1": "2","arg2": ["1","2","3","4","5"]}
+
+# Fix : Remove verb argument and everything before it.
+
+2) Two relations with same arg1 and overlapping arg2
+"patient": [{"喜欢": "周杰伦","pred": "喜欢.01","arg1": "2","arg2": ["3"]},{"喜欢": "我喜欢周杰伦的歌","pred": "喜欢.01","arg1": "2","arg2": ["1","2","3","4","5"]}]
+
+
+# Next Version Info: 
+
+1. Next SRL release will be Friday , 2/9/16. 
+2. Training Data will include ~700 sentences from Memory data for different cases. 
+3. User interface at /srlviz will be updated to show : 1) SRL Triple format 2) HIT Format data for more quick understanding
+4. Addition of Evaluation metrics for SRL
+
+
+# SRL 1.3.1 
+
+It is released on taipei server (192.168.3.2) and dev server in shanghai (192.168.1.126)
+
+
+1. New model SRL model trained on total 7043 sentences. 
+2. Modified JSON to include version number and also verb type (primary, secondary). For. e.g.  真是个有孝心的好孩子。 Here, 是.01, 有.02
+3. Added Form inputs on /srlviz visualisation page for selecting 1) model type (Emotibot, LDC Corpus). 2) Manual Mode. 
+4. Many bug fixes related to data validation. Code can detect and fix 90% of syntax isses and missing information in conll format tagged data  based on 7043 sentences.
+5. New submodule to generate SRL data in JSON format for data analysis in python
+
+
+# Next Version Info: 
+
+1. Next SRL release will be for 10000 trained sentences latest by monday, 29/8/16. 
+2. This will also include much better main verbs identification as SRL system learns that as well from tagged data. We are enhancing the verbs priority when there are multiple verbs in a sentence clause , or multiple sentence clauses
+3. Some bug fixes for e.g. verb argument in argument 2. for example : "研究"："研究飲食".
+
+# Some stats on current SRL Data
+
+total sentences :  7044
+sentences with multiple predicates :  3552
+statistics on argument relations :  (Each relation is counted only once per sentence)
+
+Rel 	 Count
+A0        3115
+A1        2945
+A2         374
+A3          29
+A4          53
+ADV       2945
+AFT        198
+AM-REC       1
+AT        2714
+BNF        114
+C-          51
+C-ARG       13
+CAU         38
+CND         50
+CON          7
+CST          3
+CTS         12
+DIR        136
+DIS        537
+EXT        182
+FRQ          1
+LOC        325
+MNR         27
+MOD       1856
+NEG        699
+PRP         50
+RAG         34
+REC         65
+TMP        542
+
+## [1.3.0]- 2016-08-15
+
+This version is backward compatible : 
+for older version : E.g :  
+
+http://192.168.1.126:12401/SemanticRoleLabeling?option=2&text=你最喜欢吃学校的什么饭呢
+
+for new version: E.g :
+http://192.168.1.126:12401/SRL?option=2&lang=zh&segmentSentence=true&model=2&manual_mode=true&doTree=true&NER=false&text=你最喜欢吃学校的什么饭呢
+
+
+### Added
+
+#### Model 
+SRL Model trained on 4700 srl tagged sentencs. 
+
+#### Fixed Issues
+- Fixed missing first token issue
+- Fixed duplicate relations issue
+
+
+#### Additions
+- SRL Validator Code 
+    - Added support to deal with directories to keep sources of srl sentences organized.
+- SRL Viz
+	- Added Stanford Parse tree for visualization. Dependency parser will come in the new version. 
+- 
+
+
+### Changed
+- Start versioning based on the at 1.3.0 to help track the version changes
+
+
+## [1.2.0] - 2016-08-05
+### Added new parameters: 
+
+1. Manual Mode - There is a manual parser which can parse and return same results as tagged SRL Data.
+2.  Model - There are two models and we can switch between them by specifying model=1 or model=2
+    * Model 1 : Model trained on standard conll chinese corpus
+    * Model 2 : Model trained on emotibot data (current ~3000 sentences)
+3.  Parse tree - Syntactic Parse tree output is added
+4.  Segment Sentence - not enabled. 
+5.  NER - Currently not implemented 
+
+### Total SRL Training data - 3000 sentences
+
+##  [1.1.0] - 2016-07-10
+
+- Deployed SRL code on prod/dev/stage servers

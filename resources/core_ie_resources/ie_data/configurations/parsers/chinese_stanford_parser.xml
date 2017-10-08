@@ -1,0 +1,10 @@
+<configuration >
+  <preference name="port" value="5555" />
+  <preference name="srparser" value="resources/core_ie_resources/ie_data/stanfordparser/models/srparser/zh/chineseSR.ser.gz" />
+   <preference name="postagger" value="resources/core_ie_resources/ie_data/stanfordparser/models/pos-tagger/zh/chinese-distsim.tagger" />
+    <preference name="lexparser" value="resources/core_ie_resources/ie_data/stanfordparser/models/lexparser/zh/chinesePCFG.ser.gz" />
+     <preference name="chineseWordSegmentationVocab" value="resources/core_ie_resources/ie_data/dictionary/zh/vocab.txt" />
+     <preference name="maxLength" value="80" />
+     <preference name="sentences" value="\n" />
+</configuration>
+
